@@ -9,9 +9,11 @@ exports.calculate = function(req, res) {
     res.status(400);
     res.json({ error: err.message });
   });
-
+ 
+  //using + operator before the variable is necessary in addition to avoid string concatenation
+  
   var operations = {
-    'add':      function(a,b) { return a + b },
+    'add':      function(a,b) { return +a + +b },
     'subtract': function(a,b) { return a - b },
     'multiply': function(a,b) { return a * b },
     'divide':   function(a,b) { return a / b },
